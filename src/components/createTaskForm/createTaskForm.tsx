@@ -32,7 +32,7 @@ import { cn } from "@/lib/utils";
 /* Datepicker imports */
 import { format } from "date-fns";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+//import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { useCreateTask } from "@/hooks/createTask.hook";
@@ -41,8 +41,7 @@ import { Toaster } from "sonner";
 import { toast } from "sonner";
 
 export function CreateTaskForm() {
-  const [date, setDate] = useState();
-  const { mutate, isSuccess, isError, isPending } = useCreateTask();
+  const { mutate, isSuccess } = useCreateTask();
   const queryClient = useQueryClient();
 
   // 1. Define your form.
@@ -56,7 +55,7 @@ export function CreateTaskForm() {
 
   /** Function to handle what will happen when the form is submitted */
   function onSubmit(values: z.infer<typeof CreateTaskSchema>) {
-    let dueDate = values.dueDate.toISOString();
+    const dueDate = values.dueDate.toISOString();
     mutate({ ...values, dueDate });
     queryClient.invalidateQueries({
       queryKey: ["fetchTasks"],

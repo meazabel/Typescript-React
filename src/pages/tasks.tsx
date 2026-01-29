@@ -25,7 +25,7 @@ function todaysDate() {
 
 export const Tasks: FC = (): ReactElement => {
   /* Trigger the hook  */
-  const { data, isError, isSuccess, isPending, error } = useFetchTasks();
+  const { data } = useFetchTasks();
   // Custom type guard to check if the response data is an array
   console.log(data);
 

@@ -21,7 +21,7 @@ export const Task: FC<ITask> = (props: ITask): ReactElement => {
   const { title, description, dueDate, status, priority, _id } = props;
 
   const [progress, setProgress] = useState(false);
-  const { mutate, isSuccess } = useUpdateTask();
+  const { mutate } = useUpdateTask();
   const queryClient = useQueryClient();
 
   // Use toLocaleDateString with options for day, month, and year

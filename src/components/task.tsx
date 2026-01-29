@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import type { FC, ReactElement } from "react";
 
 import {
   Card,
@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { ITask } from "@/types/task.interface";
+import type { ITask } from "@/types/task.interface";
 
 export const Task: FC<ITask> = (props: ITask): ReactElement => {
   const { title, description, dueDate, status, priority } = props;
